@@ -9,5 +9,25 @@
       }
     ],
     "@babel/preset-react"
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "extensions": [
+          ".ts",
+          ".tsx",
+          ".js",
+          ".jsx",
+          ".json"
+        ],
+        "alias": {
+          "src": "./src/",
+          "assets": "./src/@assets",
+          "common": "./src/@common",
+          "components": "./src/@components"
+        }
+      }
+    ]
   ]
 }
