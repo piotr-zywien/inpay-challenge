@@ -3,7 +3,7 @@ import { makeStyles } from 'tss-react/mui';
 
 import SvgIcon from '@mui/material/SvgIcon';
 
-import Logo from 'assets/Logo.svg';
+import Logo from 'assets/svg/Logo.svg';
 
 
 const useStyles = makeStyles()(({ spacing, palette }) => ({
