@@ -12,7 +12,7 @@ const StyledAccordion = withStyles(
   Accordion,
   ({ spacing }) => ({
     root: {
-      marginTop: spacing(0.5),
+      marginTop: spacing(1),
       marginBottom: spacing(0.5),
       borderRadius: spacing(1.5),
       boxShadow: 'none',

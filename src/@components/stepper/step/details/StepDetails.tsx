@@ -5,6 +5,8 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 
 import { useSteps } from 'common/providers/steps';
 
+import Button from 'components/button';
+
 import StepDetailsShape from './StepDetailsShape';
 
 
@@ -17,6 +19,7 @@ const StyledAccordionDetails = withStyles(
       paddingRight: spacing(8),
       paddingBottom: spacing(6),
       color: palette.primary.dark,
+      flexDirection: 'column',
     },
   }),
 );
@@ -28,10 +31,28 @@ const StepDetails: React.FC<StepDetailsShape> = ({
   const {
     setStep,
     getState,
+    hasNext,
+    hasPrev,
+    next,
+    prev,
   } = useSteps();
   return (
     <StyledAccordionDetails>
       {children}
+      <div>
+        {hasPrev && (
+          <Button
+            onClick={prev}
+            text="Back"
+          />
+        )}
+        {hasNext && (
+          <Button
+            onClick={next}
+            text="Next"
+          />
+        )}
+      </div>
     </StyledAccordionDetails>
   );
 };

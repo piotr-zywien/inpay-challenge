@@ -18,6 +18,9 @@ const useStyles = makeStyles()(({ palette, spacing }) => ({
     backgroundColor: palette.background.content,
     padding: spacing(2),
   },
+  estimation: {
+    marginTop: spacing(2),
+  },
 }));
 
 const Center: React.FC<ChildrenShape> = ({ children }) => {
@@ -43,6 +46,7 @@ const Center: React.FC<ChildrenShape> = ({ children }) => {
       <Typography
         variant="subtitle1"
         align="center"
+        className={classes.estimation}
       >
         Estimated time: <b>10 min</b>
       </Typography>

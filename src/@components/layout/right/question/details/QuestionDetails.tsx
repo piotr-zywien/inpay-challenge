@@ -22,7 +22,7 @@ const QuestionDetails: React.FC<QuestionDetailsShape> = ({
   value,
 }) => (
   <StyledAccordionDetails>
-    <Typography variant="body1">
+    <Typography variant="body2">
       {value}
     </Typography>
   </StyledAccordionDetails>

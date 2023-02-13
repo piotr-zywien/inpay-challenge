@@ -4,6 +4,8 @@ import { makeStyles } from 'tss-react/mui';
 import ChildrenShape from 'common/shapes/children';
 import { useSteps } from 'common/providers/steps';
 
+import Button from 'components/button';
+
 import StepperShape from './StepperShape';
 import Step from './step';
 

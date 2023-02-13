@@ -14,6 +14,8 @@ const StyledAccordion = withStyles(
   Accordion,
   ({ spacing }) => ({
     root: {
+      display: 'flex',
+      flexDirection: 'column',
       borderRadius: spacing(1.5),
       boxShadow: 'none',
       '&::before': {
@@ -35,7 +37,9 @@ const Step: React.FC<StepShape> = ({
   state,
   children,
 }) => {
-  const { step } = useSteps();
+  const {
+    step,
+  } = useSteps();
   return (
     <StyledAccordion
       expanded={step === index}

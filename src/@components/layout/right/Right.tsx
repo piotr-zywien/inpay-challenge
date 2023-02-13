@@ -21,6 +21,9 @@ const useStyles = makeStyles()(({ palette, spacing }) => ({
   title: {
     color: palette.background.light,
   },
+  description: {
+    marginBottom: spacing(3),
+  },
   faq: {
     display: 'flex',
     flexDirection: 'column',
@@ -60,6 +63,7 @@ const Right: React.FC = () => {
             Get help with the KYC and Due Dilligence
           </Typography>
           <Typography
+            className={classes.description}
             variant="body1"
             gutterBottom
           >

@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   withStyles,
+  makeStyles,
 } from 'tss-react/mui';
 
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -9,6 +10,15 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import QuestionSummaryShape from './QuestionSummaryShape';
 
+
+const useStyles = makeStyles()(({ palette, spacing }) => ({
+  label: {
+    fontSize: 14,
+    fontStyle: 'italic',
+    fontWeight: 'bold',
+    lineHeight: 1,
+  },
+}));
 
 const StyledAccordionSummary = withStyles(
   AccordionSummary,
@@ -23,19 +33,23 @@ const QuestionSummary: React.FC<QuestionSummaryShape> = ({
   value,
   onClick,
   expanded,
-}) => (
-  <StyledAccordionSummary
-    onClick={onClick}
-    expandIcon={
-      <ExpandMoreIcon />
-    }
-  >
-    <Typography
-      variant="h6"
+}) => {
+  const { classes } = useStyles();
+  return (
+    <StyledAccordionSummary
+      onClick={onClick}
+      expandIcon={
+        <ExpandMoreIcon />
+      }
     >
-      {value}
-    </Typography>
-  </StyledAccordionSummary>
-);
+      <Typography
+        variant="h6"
+        className={classes.label}
+      >
+        {value}
+      </Typography>
+    </StyledAccordionSummary>
+  );
+};
 
 export default QuestionSummary;
