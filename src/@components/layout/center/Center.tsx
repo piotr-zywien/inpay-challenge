@@ -11,7 +11,7 @@ import Details from 'components/steps/details';
 const useStyles = makeStyles()(({ palette, spacing }) => ({
   root: {
     display: 'flex',
-    width: '60%',
+    width: '50%',
     flexDirection: 'column',
     justifyContent: 'center',
     placeContent: 'flex-start',

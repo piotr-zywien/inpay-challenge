@@ -1,6 +1,6 @@
 import React from 'react';
+import { withStyles } from 'tss-react/mui';
 
-import { withStyles } from '@mui/styles';
 import AccordionDetails from '@mui/material/AccordionDetails';
 
 import { useSteps } from 'common/providers/steps';
@@ -8,11 +8,18 @@ import { useSteps } from 'common/providers/steps';
 import StepDetailsShape from './StepDetailsShape';
 
 
-// const StyledAccordionDetails = withStyles(({
-//
-// }) => {
-//
-// })(AccordionDetails);
+const StyledAccordionDetails = withStyles(
+  AccordionDetails,
+  ({ spacing, palette }) => ({
+    root: {
+      display: 'flex',
+      paddingLeft: spacing(8),
+      paddingRight: spacing(8),
+      paddingBottom: spacing(6),
+      color: palette.primary.dark,
+    },
+  }),
+);
 
 const StepDetails: React.FC<StepDetailsShape> = ({
   index,
@@ -23,9 +30,9 @@ const StepDetails: React.FC<StepDetailsShape> = ({
     getState,
   } = useSteps();
   return (
-    <AccordionDetails>
+    <StyledAccordionDetails>
       {children}
-    </AccordionDetails>
+    </StyledAccordionDetails>
   );
 };
 

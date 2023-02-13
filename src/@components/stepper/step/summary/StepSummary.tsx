@@ -11,6 +11,7 @@ import { useSteps } from 'common/providers/steps';
 import StepStateEnum from 'common/enums/state';
 
 import StepSummaryShape from './StepSummaryShape';
+import StepSummaryNumber from './StepSummaryNumber';
 
 
 const useStyles = makeStyles()(({ palette }) => ({
@@ -41,6 +42,7 @@ const StepSummary: React.FC<StepSummaryShape> = ({
 
   return (
     <StyledAccordionSummary onClick={() => onStep(index)}>
+      <StepSummaryNumber index={index} state={state} />
       <Typography
         variant="h5"
         className={cx({
