@@ -1,9 +1,6 @@
-import ChildrenShape from 'common/shapes/children';
-
-
 interface StepSummaryShape {
   index: number,
-  children: ChildrenShape,
+  title: string,
 }
 
 export default StepSummaryShape;

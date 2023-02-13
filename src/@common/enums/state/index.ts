@@ -1,1 +1,1 @@
-export default './StepStateEnum';
+export { default } from './StepStateEnum';

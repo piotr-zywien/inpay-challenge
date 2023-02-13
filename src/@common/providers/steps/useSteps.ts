@@ -1,27 +1,58 @@
-import { useState, useEffect } from 'react';
+import { useState, useLayoutEffect, useMemo } from 'react';
 
 import StepStateEnum from 'common/enums/state';
 
+
 const useSteps = () => {
+  const [previous, setPrevious] = useState<StepStateEnum>(StepStateEnum.PENDING);
   const [step, setStep] = useState<number>(0);
   const [steps, setSteps] = useState<StepStateEnum[]>([]);
+  const hasPrev = useMemo<boolean>(
+    () => (step - 1) >= 0,
+    [step],
+  );
+  const hasNext = useMemo<boolean>(
+    () => (step + 1) <= (steps.length - 1),
+    [step, steps],
+  );
 
-  const initSteps = (value: number) => (new Array(value))
-    .map(() => StepStateEnum.PENDING);
+  const initSteps = (value: number) => {
+    const $steps = [...Array(value)].map(() => StepStateEnum.PENDING);
+    $steps[step] = StepStateEnum.CURRENT;
+    setSteps($steps);
+  };
+
+  const onStep = (value: number) => {
+    const $steps = steps;
+    $steps[step] = previous;
+    setPrevious($steps[value]);
+    $steps[value] = StepStateEnum.CURRENT;
+    setSteps($steps);
+    setStep(value);
+  };
 
   const getState = (value: number) => steps[value];
 
-  useEffect(() => {
-    const $steps = steps;
-    $steps[step] = StepStateEnum.CURRENT,
-    setSteps($steps);
-  }, [steps, step]);
+  const next = () => {
+    if (!hasNext) return;
+    setStep(nextStep + 1);
+  };
+
+  const prev = () => {
+    if (!hasPrev) return;
+    setStep(prevStep - 1);
+  };
 
   return {
     step,
     initSteps,
+    onStep,
     setStep,
     getState,
+    hasNext,
+    hasPrev,
+    next,
+    prev,
   };
 };
 

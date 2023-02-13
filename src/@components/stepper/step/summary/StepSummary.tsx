@@ -1,33 +1,55 @@
 import React from 'react';
+import {
+  withStyles,
+  makeStyles,
+} from 'tss-react/mui';
 
-import { withStyles } from '@mui/styles';
 import AccordionSummary from '@mui/material/AccordionSummary';
+import Typography from '@mui/material/Typography';
 
 import { useSteps } from 'common/providers/steps';
+import StepStateEnum from 'common/enums/state';
 
 import StepSummaryShape from './StepSummaryShape';
 
 
-// const StyledAccordionSummary = withStyles(({
-//
-// }) => {
-//
-// })(AccordionSummary);
+const useStyles = makeStyles()(({ palette }) => ({
+  pending: {
+    color: palette.primary.light
+  },
+}));
+
+const StyledAccordionSummary = withStyles(
+  AccordionSummary,
+  ({ palette }) => ({
+    root: {
+      color: palette.primary.dark,
+    },
+  }),
+);
 
 const StepSummary: React.FC<StepSummaryShape> = ({
   index,
-  children,
+  title,
 }) => {
   const {
-    setStep,
+    onStep,
     getState,
   } = useSteps();
+  const { cx, classes } = useStyles();
   const state = getState(index);
-  console.log(index, state);
+
   return (
-    <AccordionSummary onClick={() => setStep(index)}>
-      {children}
-    </AccordionSummary>
+    <StyledAccordionSummary onClick={() => onStep(index)}>
+      <Typography
+        variant="h5"
+        className={cx({
+          [classes.pending]: state === StepStateEnum.PENDING,
+        })}
+      >
+        {title}
+      </Typography>
+    </StyledAccordionSummary>
   );
 };
 

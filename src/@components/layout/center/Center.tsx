@@ -1,16 +1,22 @@
 import React from 'react';
 import { makeStyles } from 'tss-react/mui';
 
+import Typography from '@mui/material/Typography';
+
 import Stepper from 'components/stepper';
 import Welcome from 'components/steps/welcome';
 import Details from 'components/steps/details';
 
 
-const useStyles = makeStyles()(({ palette }) => ({
+const useStyles = makeStyles()(({ palette, spacing }) => ({
   root: {
     display: 'flex',
     width: '60%',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    placeContent: 'flex-start',
     backgroundColor: palette.background.content,
+    padding: spacing(2),
   },
 }));
 
@@ -21,6 +27,25 @@ const Center: React.FC<ChildrenShape> = ({ children }) => {
     <div
       className={classes.root}
     >
+    <Typography
+      variant="subtitle2"
+      align="center"
+    >
+      KYC & DUE DILIGENCE
+    </Typography>
+      <Typography
+        variant="h4"
+        align="center"
+        gutterBottom
+      >
+        Add new customer
+      </Typography>
+      <Typography
+        variant="subtitle1"
+        align="center"
+      >
+        Estimated time: <b>10 min</b>
+      </Typography>
       <Stepper
         steps={[
           {

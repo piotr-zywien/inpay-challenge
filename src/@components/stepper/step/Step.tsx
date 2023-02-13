@@ -1,6 +1,6 @@
 import React from 'react';
+import { withStyles } from 'tss-react/mui';
 
-import { withStyles } from '@mui/styles';
 import Accordion from '@mui/material/Accordion';
 
 import { useSteps } from 'common/providers/steps';
@@ -10,11 +10,24 @@ import StepSummary from './summary';
 import StepDetails from './details';
 
 
-// const StyledAccordion = withStyles(({
-//
-// }) => {
-//
-// })(Accordion);
+const StyledAccordion = withStyles(
+  Accordion,
+  ({ spacing }) => ({
+    root: {
+      borderRadius: spacing(1.5),
+      boxShadow: 'none',
+      '&::before': {
+        backgroundColor: 'transparent',
+      },
+      '&:first-of-type': {
+        borderRadius: spacing(1.5),
+      },
+      '&:last-of-type': {
+        borderRadius: spacing(1.5),
+      },
+    },
+  }),
+);
 
 const Step: React.FC<StepShape> = ({
   index,
@@ -24,20 +37,19 @@ const Step: React.FC<StepShape> = ({
 }) => {
   const { step } = useSteps();
   return (
-    <Accordion
+    <StyledAccordion
       expanded={step === index}
     >
       <StepSummary
         index={index}
-      >
-        {title}
-      </StepSummary>
+        title={title}
+      />
       <StepDetails
         index={index}
       >
         {children}
       </StepDetails>
-    </Accordion>
+    </StyledAccordion>
   );
 };
 
