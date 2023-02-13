@@ -35,12 +35,16 @@ const useSteps = () => {
 
   const next = () => {
     if (!hasNext) return;
-    setStep(step + 1);
+    const nextStep = step + 1;
+    setStep(nextStep);
+    onStep(nextStep);
   };
 
   const prev = () => {
     if (!hasPrev) return;
-    setStep(step - 1);
+    const prevStep = step - 1;
+    setStep(prevStep);
+    onStep(prevStep);
   };
 
   return {

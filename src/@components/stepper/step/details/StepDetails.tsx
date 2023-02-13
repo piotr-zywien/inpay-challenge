@@ -1,5 +1,5 @@
 import React from 'react';
-import { withStyles } from 'tss-react/mui';
+import { makeStyles, withStyles } from 'tss-react/mui';
 
 import AccordionDetails from '@mui/material/AccordionDetails';
 
@@ -9,6 +9,14 @@ import Button from 'components/button';
 
 import StepDetailsShape from './StepDetailsShape';
 
+
+const useStyles = makeStyles()(({ spacing }) => ({
+  buttons: {
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: spacing(4),
+  },
+}));
 
 const StyledAccordionDetails = withStyles(
   AccordionDetails,
@@ -28,6 +36,7 @@ const StepDetails: React.FC<StepDetailsShape> = ({
   index,
   children,
 }) => {
+  const { classes } = useStyles();
   const {
     setStep,
     getState,
@@ -39,17 +48,17 @@ const StepDetails: React.FC<StepDetailsShape> = ({
   return (
     <StyledAccordionDetails>
       {children}
-      <div>
+      <div className={classes.buttons}>
         {hasPrev && (
           <Button
             onClick={prev}
-            text="Back"
+            text={hasNext ? 'Back' : 'Done'}
           />
         )}
         {hasNext && (
           <Button
             onClick={next}
-            text="Next"
+            text={hasPrev ? 'Next' : 'Start'}
           />
         )}
       </div>

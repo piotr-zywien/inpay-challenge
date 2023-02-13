@@ -18,6 +18,8 @@ const StyledAccordion = withStyles(
       flexDirection: 'column',
       borderRadius: spacing(1.5),
       boxShadow: 'none',
+      marginTop: spacing(1),
+      marginBottom: spacing(1),
       '&::before': {
         backgroundColor: 'transparent',
       },

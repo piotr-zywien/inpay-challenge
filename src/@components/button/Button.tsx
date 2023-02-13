@@ -11,11 +11,21 @@ const StyledButton = withStyles(
   ({ palette, spacing }) => ({
     root: {
       color: palette.primary.main,
-      borderWidth: 1,
+      borderWidth: spacing(0.25),
       borderStyle: 'solid',
       borderColor: palette.primary.main,
       borderRadius: spacing(5),
       fontWeight: 'bold',
+      marginLeft: spacing(1),
+      marginRight: spacing(1),
+      '&:hover': {
+        color: palette.basic.white,
+        backgroundColor: palette.background.main,
+        borderWidth: spacing(0.25),
+        borderStyle: 'solid',
+        borderColor: palette.primary.main,
+        borderRadius: spacing(5),
+      },
     },
   }),
 );
