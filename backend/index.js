@@ -20,21 +20,24 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get(
-  '/inpay/signup/:id/save',
+app.post(
+  '/inpay/signup/step/:step/save',
   (req, res) => {
-    const { params: { id }, body } = req;
+    const { params: { step }, body } = req;
+
     jsonFile(fileName, (err, file) => {
       if (err) return err;
+
       file.set({
-        ...file,data,
-        [id]: body,
-      }).then(
-        () => file
-          .save()
-          .then(() => res.json(body));
+        [step]: body,
+      });
+      file.save()
+        .then(() => {
+          file.get(step)
+            .then(response => res.json(response));
+        });
     });
-  }
+  },
 );
 
 app.listen(

@@ -11,6 +11,7 @@ const useStyles = makeStyles()(({ spacing, palette }) => ({
     display: 'flex',
     alignItems: 'flex-start',
     width: spacing(8),
+    maxHeight: '100vh',
     padding: spacing(2),
   },
   logo: {

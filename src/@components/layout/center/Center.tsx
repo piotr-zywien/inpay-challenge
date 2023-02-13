@@ -16,6 +16,8 @@ const useStyles = makeStyles()(({ palette, spacing }) => ({
   root: {
     display: 'flex',
     width: '50%',
+    maxHeight: '100vh',
+    overflowY: 'scroll',
     flexDirection: 'column',
     justifyContent: 'center',
     placeContent: 'flex-start',

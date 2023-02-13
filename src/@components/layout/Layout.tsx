@@ -10,9 +10,11 @@ const useStyles = makeStyles()(({ palette }) => ({
   root: {
     display: 'flex',
     width: '100%',
-    height: '100%',
+    height: '100vh',
     minWidth: '100vw',
     minHeight: '100vh',
+    maxWidth: '100vw',
+    maxHeight: '100vh',
     backgroundColor: palette.background.main,
     margin: 0,
   },

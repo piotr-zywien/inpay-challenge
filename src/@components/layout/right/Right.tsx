@@ -12,6 +12,7 @@ const useStyles = makeStyles()(({ palette, spacing }) => ({
     flexGrow: 1,
     alignItems: 'flex-end',
     width: 'min-content',
+    maxHeight: '100vh',
   },
   container: {
     display: 'flex',

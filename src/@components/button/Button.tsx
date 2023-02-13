@@ -18,6 +18,8 @@ const StyledButton = withStyles(
       fontWeight: 'bold',
       marginLeft: spacing(1),
       marginRight: spacing(1),
+      paddingLeft: spacing(4),
+      paddingRight: spacing(4),
       '&:hover': {
         color: palette.basic.white,
         backgroundColor: palette.background.main,

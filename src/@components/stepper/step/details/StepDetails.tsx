@@ -38,8 +38,6 @@ const StepDetails: React.FC<StepDetailsShape> = ({
 }) => {
   const { classes } = useStyles();
   const {
-    setStep,
-    getState,
     hasNext,
     hasPrev,
     next,
