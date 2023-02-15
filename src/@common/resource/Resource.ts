@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 
-const HOST = 'http://localhost:2011/inpay/signup';
+const HOST = 'http://localhost:1186/inpay/signup';
 
 const Resource = axios.create({
   baseURL: HOST,

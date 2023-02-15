@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 
 import StepStateEnum from 'common/enums/state';
 

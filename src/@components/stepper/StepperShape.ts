@@ -1,8 +1,9 @@
-import ChildrenShape from 'common/shapes/children'
+import { ComponentType } from 'react';
+
 
 type StepShape = {
   title: string,
-  content: ChildrenShape,
+  content: ComponentType,
 };
 
 interface StepperShape {

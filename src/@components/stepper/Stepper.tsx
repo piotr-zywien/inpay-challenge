@@ -31,13 +31,13 @@ const Stepper: React.FC<StepperShape> = ({ steps }) => {
 
   return (
     <div className={classes.root}>
-      {steps.map(({ title, content }, index) => (
+      {steps.map(({ title, content: Content }, index) => (
         <Step
           key={index}
           index={index}
           title={title}
         >
-          {content}
+          <Content index={index} />
         </Step>
       ))}
     </div>

@@ -34,12 +34,14 @@ const StyledButton = withStyles(
 
 const Button: React.FC<ButtonShape> = ({
   text,
-  onClick
+  onClick,
+  disabled,
 }) => {
   return (
     <StyledButton
       variant="outlined"
       onClick={onClick}
+      disabled={disabled}
     >
       {text}
     </StyledButton>

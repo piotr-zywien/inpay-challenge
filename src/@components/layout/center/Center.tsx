@@ -4,12 +4,12 @@ import { makeStyles } from 'tss-react/mui';
 import Typography from '@mui/material/Typography';
 
 import Stepper from 'components/stepper';
-import Welcome from 'components/steps/welcome';
-import Details from 'components/steps/details';
-import Owners from 'components/steps/owners';
-import Business from 'components/steps/business';
-import Volume from 'components/steps/volume';
-import Approval from 'components/steps/approval';
+import Welcome from 'components/steps/content/welcome';
+import Details from 'components/steps/content/details';
+import Owners from 'components/steps/content/owners';
+import Business from 'components/steps/content/business';
+import Volume from 'components/steps/content/volume';
+import Approval from 'components/steps/content/approval';
 
 
 const useStyles = makeStyles()(({ palette, spacing }) => ({
@@ -60,27 +60,27 @@ const Center: React.FC<ChildrenShape> = ({ children }) => {
         steps={[
           {
             title: 'Welcome',
-            content: <Welcome />,
+            content: Welcome,
           },
           {
             title: 'Company details',
-            content: <Details />,
+            content: Details,
           },
           {
             title: 'Ultimate Beneficial Owner(s)',
-            content: <Owners />,
+            content: Owners,
           },
           {
             title: 'Nature of business',
-            content: <Business />,
+            content: Business,
           },
           {
             title: 'Estimated monthly volume',
-            content: <Volume />,
+            content: Volume,
           },
           {
             title: 'Customer approval',
-            content: <Approval />,
+            content: Approval,
           },
         ]}
       />
